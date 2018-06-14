@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>ship.png</file>
+        <file>water.jpg</file>
+        <file>fire.png</file>
+    </qresource>
+</RCC>
