@@ -18,11 +18,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     bool Button_Clicked(std::string word);
+    std::vector<std::string> vec;
+
+    std::string Make_Capital(const int& val);
+    bool Check_Coord_valid(const std::string& cord);
+    void fill_vec();
 
 
 private:
     Ui::MainWindow *ui;
-    std::vector<std::string> vec = {"1A","1G", "1H"};
 
 private slots:
 

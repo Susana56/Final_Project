@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QIcon>
+#include <stdlib.h>
+#include <grid.h>
+#include <string>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -19,6 +22,167 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::fill_vec(){
+    int num_ship = 1;
+    int hor_or_vert = rand() % 2 +1;
+    while (num_ship < 11){
+
+        if(hor_or_vert == 1){ // want to input horizontal ship
+            if(num_ship == 1){
+                do {
+                    int row = rand() % 10 + 1;
+                    int column = rand() % 10 + 1;
+                    std::string newShip_comp1 = std::to_string(row) + Make_Capital(column);
+                    std::string newShip_comp2 = std::to_string(row) + Make_Capital(column + 1);
+                    std::string newShip_comp3 = std::to_string(row) + Make_Capital(column + 2);
+                    std::string newShip_comp4 = std::to_string(row) + Make_Capital(column + 3);
+                } while(!(Check_Coord_valid(newShip_comp1) &&Check_Coord_valid(newShip_comp2) && Check_Coord_valid(newShip_comp3) && Check_Coord_valid(newShip_comp4)));
+                vec.push_back(newShip_comp1);
+                vec.push_back(newShip_comp2);
+                vec.push_back(newShip_comp3);
+                vec.push_back(newShip_comp4);
+                ++num_ship;
+            }
+              else if (num_ship == 2 || num_ship == 3){
+                    do {
+                        int row = rand() % 10 + 1;
+                        int column = rand() % 10 + 1;
+                        std::string newShip_comp1 = std::to_string(row) + Make_Capital(column);
+                        std::string newShip_comp2 = std::to_string(row) + Make_Capital(column + 1);
+                        std::string newShip_comp3 = std::to_string(row) + Make_Capital(column + 2);
+                    }while(!(Check_Coord_valid(newShip_comp1) && Check_Coord_valid(newShip_comp2) && Check_Coord_valid(newShip_comp3)));
+                    vec.push_back(newShip_comp1);
+                    vec.push_back(newShip_comp2);
+                    vec.push_back(newShip_comp3);
+                    ++num_ship;
+            }
+            else if( num_ship == 4 || num_ship ==5 || num_ship == 6){
+                do {
+                    int row = rand() % 10 + 1;
+                    int column = rand() % 10 + 1;
+                    std::string newShip_comp1 = std::to_string(row) + Make_Capital(column);
+                    std::string newShip_comp2 = std::to_string(row) + Make_Capital(column + 1);
+                }while(!(Check_Coord_valid(newShip_comp1) && Check_Coord_valid(newShip_comp2) ));
+                vec.push_back(newShip_comp1);
+                vec.push_back(newShip_comp2);
+                ++num_ship;
+            }
+            else if( num_ship == 7 || num_ship == 8 || num_ship ==9 || num_ship ==10 ){
+                do {
+                    int row = rand() % 10 + 1;
+                    int column = rand() % 10 + 1;
+                    std::string newShip_comp1 = std::to_string(row) + Make_Capital(column);
+                }while(!(Check_Coord_valid(newShip_comp1)));
+                vec.push_back(newShip_comp1);
+                ++num_ship;
+            }
+        }
+        else if(hor_or_vert == 2){  // want to input a vertical ship
+            if(num_ship == 1){
+               do {
+                    int row = rand() % 10 + 1;
+                    int column = rand() % 10 + 1;
+                    std::string newShip_comp1 = std::to_string(row) + Make_Capital(column);
+                    std::string newShip_comp2 = std::to_string(row + 1) + Make_Capital(column);
+                    std::string newShip_comp3 = std::to_string(row + 2) + Make_Capital(column);
+                    std::string newShip_comp4 = std::to_string(row + 3) + Make_Capital(column);
+                }while(!(Check_Coord_valid(newShip_comp1) && Check_Coord_valid(newShip_comp2) && Check_Coord_valid(newShip_comp3) && Check_Coord_valid(newShip_comp4)));
+                vec.push_back(newShip_comp1);
+                vec.push_back(newShip_comp2);
+                vec.push_back(newShip_comp3);
+                vec.push_back(newShip_comp4);
+                ++num_ship;
+            }
+            else if (num_ship == 2 || num_ship == 3){
+                   do {
+                        int row = rand() % 10 + 1;
+                        int column = rand() % 10 + 1;
+                        std::string newShip_comp1 = std::to_string(row) + Make_Capital(column);
+                        std::string newShip_comp2 = std::to_string(row + 1) + Make_Capital(column);
+                        std::string newShip_comp3 = std::to_string(row + 2) + Make_Capital(column);
+                    }while(!(Check_Coord_valid(newShip_comp1) && Check_Coord_valid(newShip_comp2) && Check_Coord_valid(newShip_comp3)));
+                    vec.push_back(newShip_comp1);
+                    vec.push_back(newShip_comp2);
+                    vec.push_back(newShip_comp3);
+                    ++num_ship;
+            }
+            else if( num_ship == 4 || num_ship ==5 || num_ship == 6){
+               do{
+                    int row = rand() % 10 + 1;
+                    int column = rand() % 10 + 1;
+                    std::string newShip_comp1 = std::to_string(row) + Make_Capital(column);
+                    std::string newShip_comp2 = std::to_string(row + 1) + Make_Capital(column);
+                }while(!(Check_Coord_valid(newShip_comp1) && Check_Coord_valid(newShip_comp2) ));
+                vec.push_back(newShip_comp1);
+                vec.push_back(newShip_comp2);
+                ++num_ship;
+            }
+            else if( num_ship == 7 || num_ship == 8 || num_ship ==9 || num_ship == 10 ){
+                do{
+                    int row = rand() % 10 + 1;
+                    int column = rand() % 10 + 1;
+                    std::string newShip_comp1 = std::to_string(row) + Make_Capital(column);
+                }while(!(Check_Coord_valid(newShip_comp1)));
+                vec.push_back(newShip_comp1);
+                ++num_ship;
+            }
+        }
+    }
+}
+
+bool MainWindow::Check_Coord_valid(const std::string& cord){
+    if(cord.length() == 3){
+        if(cord.substr(0,2) != "10"){
+            return false;
+        }
+    }
+    if(cord.length() == 3 && cord.at(2) > 'J'){
+        return false;
+    }
+    if(cord.length() == 2 && cord.at(1) > 'J'){
+        return false;
+    }
+    for(size_t i = 0; i < vec.size() ; ++i ){
+        if(cord == vec[i]){
+            return false;
+        }
+    }
+   return true;
+}
+std::string MainWindow::Make_Capital(const int& val){
+    if(val == 1){
+        return "A";
+    }
+    else if (val == 2){
+        return "B";
+    }
+    else if( val == 3){
+        return "C";
+    }
+    else if( val == 4){
+        return "D";
+    }
+    else if (val ==5){
+        return "E";
+    }
+    else if(val == 6){
+        return "F";
+    }
+    else if (val == 7){
+        return "G";
+    }
+    else if (val == 8){
+        return "H";
+    }
+    else if(val == 9){
+        return "I";
+    }
+    else if (val == 10){
+        return "J";
+    }
+}
+
 
 bool MainWindow::Button_Clicked(std::string word){
     for(size_t i=0; i < vec.size(); i++){
