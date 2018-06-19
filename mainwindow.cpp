@@ -17,6 +17,20 @@ MainWindow::MainWindow(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
+
+    //want the set the ships icons to look like ships
+    QPixmap pix(":/Images/ship.png");
+    ui->Ship_1->setPixmap(pix);
+    ui->Ship_2->setPixmap(pix);
+    ui->Ship_3->setPixmap(pix);
+    ui->Ship_4->setPixmap(pix);
+    ui->Ship_5->setPixmap(pix);
+    ui->Ship_6->setPixmap(pix);
+    ui->Ship_7->setPixmap(pix);
+    ui->Ship_8->setPixmap(pix);
+    ui->Ship_9->setPixmap(pix);
+    ui->Ship_10->setPixmap(pix);
+
 }
 
 MainWindow::~MainWindow()
